@@ -14,12 +14,12 @@
         <a class="nav-link" [routerLink]="['home']">Home</a>
       </li>
       <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" [routerLink]="['search']">Search</a>
+        <a class="nav-link" [routerLink]="['search/0']">Search</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" (keyup.enter)="searchPerson(searchtext.value)" #searchtext>
+      <button class="btn btn-outline-success my-2 my-sm-0" (click)="searchPerson(searchtext.value)" type="button">Search</button>
     </form>
   </div>
 </nav>

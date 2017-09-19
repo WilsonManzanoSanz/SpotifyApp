@@ -19,7 +19,7 @@ export class SpotifyService {
   artists:any[];
 
   urlSearch:string = this.urlSpotify + this.urlVersion + "search";
-  urlArtist:string = this.urlSpotify + this.urlVersion + "artist";
+  urlArtist:string = this.urlSpotify + this.urlVersion + "artists";
 
 
 
@@ -29,7 +29,7 @@ export class SpotifyService {
   	//console.log("https://api.spotify.com/v1/search");
 
     let headers = new Headers();
-    headers.append('authorization','Bearer BQC-z0rWSqTzD1Uj-PVZt3bZOH8UMOSj8vdCFXdg1IwEbXlkNj4lCglCO-sNN7LLmVY3ZSlamcYOLawH2q3vMw');
+    headers.append('authorization','Bearer BQAa7LPI8UiP4a94DBeW7s0z_wZAUIyDsHJCgY_x3PO-LeEPIbNVVmoL88uGXnhav1iLc-oTyQlgNvWiMJJQPQ');
     let query = "?q=$" + artist + "&type=artist";
     let url = this.urlSearch + query;
 
@@ -45,8 +45,40 @@ export class SpotifyService {
           this.artists = res.json().artists.items;
           return res.json().artists.items;
     })
+  }
 
 
+  getspecificArtist(id:string){
+  	//console.log("https://api.spotify.com/v1/search");
+
+    let headers = new Headers();
+    headers.append('authorization','Bearer BQAa7LPI8UiP4a94DBeW7s0z_wZAUIyDsHJCgY_x3PO-LeEPIbNVVmoL88uGXnhav1iLc-oTyQlgNvWiMJJQPQ');
+    let query = "/" + id;
+    let url = this.urlArtist + query;
+
+    return this.http.get(url, {headers})
+        .map(res =>{
+          console.log(res.json());
+          return res.json();
+          //this.artists = res.json().artists.items;
+          //return res.json().artists.items;
+    })
+  }
+
+  getTopMusicArtist(id:string){
+
+    let headers = new Headers();
+    headers.append('authorization','Bearer BQAa7LPI8UiP4a94DBeW7s0z_wZAUIyDsHJCgY_x3PO-LeEPIbNVVmoL88uGXnhav1iLc-oTyQlgNvWiMJJQPQ');
+    let query = "/" + id + "/top-tracks?country=US";
+    let url = this.urlArtist + query;
+
+    return this.http.get(url, {headers})
+        .map(res =>{
+          console.log(res.json().tracks);
+          return res.json().tracks;
+          //this.artists = res.json().artists.items;
+          //return res.json().artists.items;
+    })
 
   }
 

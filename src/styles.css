@@ -26,6 +26,11 @@ hr{
   background-size: cover;
 }
 
+.img-50{
+  height: 50px;
+  width: 50px;
+}
+
 @media (max-width: 600px) {
   .carousel-item {
     height: 280px;

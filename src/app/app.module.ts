@@ -13,6 +13,7 @@ import {APP_ROUTING} from './app.routes';
 //services
 import {SpotifyService} from './services/spotify.service';
 import { NophotoPipe } from './pipes/nophoto.pipe';
+import { ArtistComponent } from './components/artist/artist.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { NophotoPipe } from './pipes/nophoto.pipe';
     HomeComponent,
     SearchComponent,
     NavbarComponent,
-    NophotoPipe
+    NophotoPipe,
+    ArtistComponent
   ],
   imports: [
     BrowserModule,
