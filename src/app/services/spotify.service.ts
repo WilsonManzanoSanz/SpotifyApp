@@ -13,7 +13,7 @@ export class SpotifyService {
 }
 
 */
-
+  token:string = "BQC9-1rqCAaaO7KVlm-RYe4JxDeWf9Hy3yix3N-IJVBBbvsX4cqf4RK5owMq3DEC_FLyd0xh2ICRzWQsFhOC5A";
   urlSpotify:string="https://api.spotify.com/";
   urlVersion:string="v1/"
   artists:any[];
@@ -23,13 +23,15 @@ export class SpotifyService {
 
 
 
-  constructor(private http:Http) { }
+  constructor(private http:Http) {
+
+  }
 
   getArtist(artist:string){
   	//console.log("https://api.spotify.com/v1/search");
 
     let headers = new Headers();
-    headers.append('authorization','Bearer BQAa7LPI8UiP4a94DBeW7s0z_wZAUIyDsHJCgY_x3PO-LeEPIbNVVmoL88uGXnhav1iLc-oTyQlgNvWiMJJQPQ');
+    headers.append('authorization','Bearer ' + this.token);
     let query = "?q=$" + artist + "&type=artist";
     let url = this.urlSearch + query;
 
@@ -52,7 +54,7 @@ export class SpotifyService {
   	//console.log("https://api.spotify.com/v1/search");
 
     let headers = new Headers();
-    headers.append('authorization','Bearer BQAa7LPI8UiP4a94DBeW7s0z_wZAUIyDsHJCgY_x3PO-LeEPIbNVVmoL88uGXnhav1iLc-oTyQlgNvWiMJJQPQ');
+    headers.append('authorization','Bearer ' + this.token);
     let query = "/" + id;
     let url = this.urlArtist + query;
 
@@ -68,7 +70,7 @@ export class SpotifyService {
   getTopMusicArtist(id:string){
 
     let headers = new Headers();
-    headers.append('authorization','Bearer BQAa7LPI8UiP4a94DBeW7s0z_wZAUIyDsHJCgY_x3PO-LeEPIbNVVmoL88uGXnhav1iLc-oTyQlgNvWiMJJQPQ');
+    headers.append('authorization','Bearer ' + this.token);
     let query = "/" + id + "/top-tracks?country=US";
     let url = this.urlArtist + query;
 

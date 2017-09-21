@@ -1,6 +1,7 @@
-<nav class="navbar navbar-expand-lg navbar-inverse bg-inverse">
-  <a class="navbar-brand" href="#">
+<nav class="navbar navbar-expand-md navbar-inverse bg-inverse">
+  <a class="navbar-brand">
    <img src="/assets/img/banner-ico.png" width="30" height="30" alt="">
+   SpotifyApp
  </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -17,7 +18,7 @@
         <a class="nav-link" [routerLink]="['search/0']">Search</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
+    <form class="form-inline my-2 my-md-0" onsubmit="return false" navbar-right>
       <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" (keyup.enter)="searchPerson(searchtext.value)" #searchtext>
       <button class="btn btn-outline-success my-2 my-sm-0" (click)="searchPerson(searchtext.value)" type="button">Search</button>
     </form>

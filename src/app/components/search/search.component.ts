@@ -13,7 +13,8 @@ export class SearchComponent implements OnInit {
 
   constructor( private spotifyService:SpotifyService, private activatedRoute:ActivatedRoute) {
     this.activatedRoute.params.subscribe(params =>{
-      this.spotifyService.getArtist(params['people']).subscribe(data=>{
+      this.value = params['people'];
+      this.spotifyService.getArtist(this.value).subscribe(data=>{
 
       });
     });

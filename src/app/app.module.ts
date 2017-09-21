@@ -14,6 +14,8 @@ import {APP_ROUTING} from './app.routes';
 import {SpotifyService} from './services/spotify.service';
 import { NophotoPipe } from './pipes/nophoto.pipe';
 import { ArtistComponent } from './components/artist/artist.component';
+import { NoaudioPipe } from './pipes/noaudio.pipe';
+import { SecurelinkPipe } from './pipes/securelink.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { ArtistComponent } from './components/artist/artist.component';
     SearchComponent,
     NavbarComponent,
     NophotoPipe,
-    ArtistComponent
+    ArtistComponent,
+    NoaudioPipe,
+    SecurelinkPipe
   ],
   imports: [
     BrowserModule,

@@ -11,13 +11,13 @@
         <a [href]="artist.external_urls?.spotify" class="btn btn-outline-success">
           Ver Pagina
         </a>
-        <a [routerLink]="['/search',id]" class="btn btn-outline-danger">
+        <a [routerLink]="['/search',artist.name]" class="btn btn-outline-danger">
           Regresar
         </a>
       </div>
     </div>
   </div>
-  <div class="row container" *ngIf="topmusic">
+  <div class="row" *ngIf="topmusic">
     <h3>Top de {{artist.name}}</h3>
     <hr>
     <div class="col-md-12">
@@ -39,10 +39,14 @@
               <td>{{top.name}}</td>
               <td>{{top.popularity}}%</td>
               <td>
+                <!--
                  <audio controls>
-                   <source [src]="top.preview_url">
+                   <source [src]="top.preview_url | noaudio">
                      Tu navegador vale MONDA
                  </audio>
+               -->
+              <iframe [src]="top.uri | securelink:'https://open.spotify.com/embed?uri='"
+               width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
               </td>
 
             </tr>
